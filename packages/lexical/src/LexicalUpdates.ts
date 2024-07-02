@@ -466,7 +466,12 @@ export function $commitPendingUpdates(
   editor._pendingEditorState = null;
   editor._editorState = pendingEditorState;
 
-  if (!shouldSkipDOM && needsUpdate && observer !== null) {
+  if (
+    !shouldSkipDOM &&
+    needsUpdate &&
+    observer !== null &&
+    rootElement !== null
+  ) {
     activeEditor = editor;
     activeEditorState = pendingEditorState;
     isReadOnlyMode = false;
